@@ -1,0 +1,37 @@
+
+
+.card{ 
+    transition: all 0.3s;
+}   
+
+.card:hover{ 
+    transform: scale(1.15);
+}  
+
+
+.slick-prev:before,
+.slick-next:before {
+    color: red;
+}
+
+
+.menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.menu_nav{
+    display: flex;
+}
+  
+
+@media (max-width:450px){
+    .menu{
+        display:flex;
+    }
+    .menu_nav{
+        display: none;
+    }
+}
+ 
