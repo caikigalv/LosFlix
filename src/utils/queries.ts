@@ -37,6 +37,7 @@ export const serieAll = (page:number = 1,  genre_ids:number, evaluated:string,  
 
     return query
 }
+
 export const SearchSerieAll = (page:number = 1, searchText:string) => {
     const query = useQuery({
         queryKey: ['search', page, searchText],

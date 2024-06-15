@@ -21,7 +21,7 @@ export const TopMovies = () => {
   
 
     return (
-        <div className="container flex mx-auto flex-col w-[100vw] ">
+        <div className="container flex mx-auto flex-col w-[100vw]">
             <h2 className="text-2xl font-bold mb-4 ml-4 uppercase">Filmes populares:</h2>
             <div className="w-full m-auto">
 
@@ -30,7 +30,7 @@ export const TopMovies = () => {
                         <>
                             <div className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
                                 <div key={d.id} className="">
-                                    <img className="rounded-md w-full absolute h-full  hover:scale-125 transition-transform 
+                                    <img className="rounded-md w-full absolute h-full  md:hover:scale-125 transition-transform 
                             " src={`${widthMage}${d.poster_path}`} alt={''} />
                                 </div>
 

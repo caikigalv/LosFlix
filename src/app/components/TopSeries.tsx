@@ -16,7 +16,7 @@ export const TopSeries = () => {
 
     return (
         <div>
-            <div className="container mx-auto flex flex-col w-[100vw] mt-[50px]  ">
+            <div className="container mx-auto flex flex-col w-[100vw] mt-[50px]   ">
 
 
                 <div className="">
@@ -28,7 +28,7 @@ export const TopSeries = () => {
                                     <div key={item.id} className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
 
                                         <div  className="" >
-                                            <img className="rounded-md w-full absolute h-full  hover:scale-125 transition-transform" src={`${widthMage}${item.poster_path}`} alt={item.title} />
+                                            <img className="rounded-md w-full absolute h-full  md:hover:scale-125 transition-transform" src={`${widthMage}${item.poster_path}`} alt={item.title} />
                                         </div>
 
                                         <div className={`flex flex-col justify-center items-center h-full w-full translate-y-[80%] hover:translate-y-0 transition-all ${style.show_detalhe}`}>

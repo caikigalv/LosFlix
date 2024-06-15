@@ -1,6 +1,6 @@
 import axios from "axios";
 import { keyapi } from "./keyapi";
-import { serieAll } from "./queries";
+
 
 export const api = axios.create({
     baseURL: 'https://api.themoviedb.org'

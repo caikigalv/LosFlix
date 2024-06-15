@@ -12,11 +12,9 @@ import { widthMage } from "@/utils/api";
 
 export default function DetalheSerie() {
 
-
     const { id } = useParams();
     const [serieDetails, setSerieDetails] = useState<any>()
 
-  
     const options = {
         method: 'GET',
         headers: {
@@ -45,26 +43,25 @@ export default function DetalheSerie() {
         currency: 'BRL',
     })
 
-
-
     return (
-        <div className="flex flex-col justify-center items-center w-screen h-screen">
-            <Link href={'/'}><FaWindowClose className="text-[30px] cursor-pointer hidden md:flex" /></Link>
-            <div className=" bg-purple-600 dark:bg-red-600 h-[600px] w-[1300px] rounded-md border">
-                <div className="flex">
+        <div className="flex flex-col justify-center self-center items-center w-screen lg:h-screen overflow-x-hidden overflow-y-hidden ">
+            <Link href={'/'}><FaWindowClose className="text-[30px] mt-16 cursor-pointer  lg:hidden " /></Link>
+            <div className=" bg-purple-600 mt-4 dark:bg-red-600 lg:h-[600px] lg:w-[1000px] xl:h-[600px] xl:w-[1300px] h-[1200px]
+            md:w-[660px] w-[300px] rounded-md border justify-center ">
+                <div className="lg:flex" >
                     <div>
-                    {serieDetails?.poster_path ? <img className="h-[598px] w-[650px]  rounded-tl-md rounded-bl-md" src={`${widthMage}${serieDetails?.poster_path}`} alt="" />
+                    {serieDetails?.poster_path ? <img className="lg:h-[598px] lg:w-[650px] md:h-[598px] md:w-[660px]  md:rounded-tl-md md:rounded-bl-md  rounded-tl-md rounded-tr-md" src={`${widthMage}${serieDetails?.poster_path}`} alt="" />
                     :
-                    <img className="h-[598px] w-[650px]  rounded-tl-md rounded-bl-md" src={'Los.gif'} alt="" />  
+                    <img className=" md:h-[598px] md:w-[650px] lg:h-[598px] lg:w-[650px] h-[300px] w-[350px]  md:rounded-tl-md md:rounded-bl-md" src={'Los.gif'} alt="" />  
                     
                     }
                     </div>
 
-                    <div className=" ml-4 w-[650px] " >
-                        <div className=" items-center w-[550px] ml-[14%] ">
-                            <div className="flex justify-between">
-                                <h1 className="text-3xl font-bold mt-4">{serieDetails?.original_name}</h1>
-                                <Link href={'/'}><FaWindowClose className="text-[30px] cursor-pointer hidden md:flex" /></Link>
+                    <div className=" xl:ml-4 md:w-[650px] ml-1 " >
+                        <div className=" items-center w-[550px] xl:ml-[14%] ">
+                            <div className="md:flex md:justify-between">
+                                <h1 className="xl:text-3xl text-md  font-bold mt-4">{serieDetails?.original_name}</h1>
+                                <Link href={'/'}><FaWindowClose className="md:text-[30px] cursor-pointer hidden lg:flex" /></Link>
                             </div>
                         </div>
 
@@ -95,18 +92,17 @@ export default function DetalheSerie() {
                             </div>
 
                             <div className="">
-                                <img className="w-4" src={serieDetails?.logo_path} alt="" />
+                                <img className="md:w-4" src={serieDetails?.logo_path} alt="" />
                             </div>
                         </div>
 
                         {/* Descrição do Filme */}
                         <div className="">
-                            <div className="font-bold">
+                            <div className="font-bold md:text-ellipsis text-wrap">
                                 <p>{serieDetails?.overview}</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

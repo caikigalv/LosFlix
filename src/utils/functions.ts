@@ -5,7 +5,7 @@ type AddMovie = {
   id:number;
   title: string;
   poster_path: string;
-  backdrop_path:string;
+  
 };
 
 
@@ -19,8 +19,8 @@ export const useFavorites = () => {
     }
   }, []);
 
-  const addFavorite = (id:number, title:string, poster_path:string, backdrop_path:string) => {
-    const newFavorites = [...favorites, {id:id , title:title, poster_path:poster_path, backdrop_path:backdrop_path}];
+  const addFavorite = (id:number, title:string, poster_path:string) => {
+    const newFavorites = [...favorites, {id:id , title:title, poster_path:poster_path}];
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
   };

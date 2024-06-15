@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
 
-    <html lang="en" className="">
+    <html lang="en" className=" ">
 
       <body className={`${inter.className} bg-slate-200 dark:bg-black overflow-x-hidden  `}>
         <ThemeProvider>
@@ -35,7 +35,7 @@ export default function RootLayout({
             </header>
             <Providers>
               
-                <main className="container max-w-md">{children}</main>
+                <main className="container max-w-md ">{children}</main>
             </Providers>
           </Container>
           
