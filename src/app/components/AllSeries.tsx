@@ -161,7 +161,7 @@ export const AllSeries = () => {
                                                 <img className="w-[340px] h-[360px]" src={'Los.gif'} alt="" />
                                             }
 
-                                            <h1 className=" text-sm font-bold md:w-[250px] truncate mt-2 2xl:w-[300px]">{item.name}</h1>
+                                            <h1 className=" text-sm font-bold w-[230px] md:w-[250px] truncate mt-2 2xl:w-[300px]">{item.name}</h1>
                                         </Link>
 
                                         <div className="flex justify-between items-center w-full mt-4">
