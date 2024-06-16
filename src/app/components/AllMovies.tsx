@@ -103,7 +103,7 @@ export const AllMovies = () => {
                 </div>
 
                 <div className="md:container md:mx-auto ">
-                    <div className="md:ml-16 w-full md:mt-16 mt-8 md:flex flex max-sm:flex-col max-sm:justify-center max-sm:items-center md:gap-8 ">
+                    <div className="md:ml-16 w-full md:mt-16 mt-8 xl:flex flex flex-wrap xl:flex-nowrap max-sm:flex-col max-sm:justify-center max-sm:items-center md:gap-8 ">
                         <div>
                             <h4 className="font-bold ml-2">Gênero:</h4>
 
