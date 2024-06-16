@@ -154,9 +154,9 @@ export const AllMovies = () => {
                         <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-center md:h-full  m-8 ml-8 gap-6 mt-8 md:m-16 items-center">
                             {gapMovie?.data?.results.map((item: any) => (
 
-                                <>
+                                <div key={item.id}>
 
-                                    <div key={item.id} className="border w-[300px] xl:w-[310px] 2xl:w-[330px] bg-purple-600 dark:bg-red-600 border-black dark:border-white md:hover:scale-105 transition-transform md:truncate rounded-md p-4 gap-4 flex flex-col justify-center items-center box-border">
+                                    <div className="border w-[300px] xl:w-[310px] 2xl:w-[330px] bg-purple-600 dark:bg-red-600 border-black dark:border-white md:hover:scale-105 transition-transform md:truncate rounded-md p-4 gap-4 flex flex-col justify-center items-center box-border">
                                         <Link href={`/datail/${item.id}`} key={item.id}>
                                             {item.poster_path ?
                                                 <img className="md:w-[320px] w-[320px]  h-[360px]" src={`${widthMage}${item.poster_path}`} alt="" />
@@ -184,7 +184,7 @@ export const AllMovies = () => {
                                     </div>
 
 
-                                </>
+                                </div>
                             ))}
 
                         </div>

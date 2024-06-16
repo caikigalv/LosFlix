@@ -1,11 +1,12 @@
 "use client"
 import { useEffect} from "react";
 import style from "@/app/components/style.module.css";
-import Slider from "react-slick"
+import Slider from "react-slick";
 import Link from "next/link";
 import { settings } from "@/utils/sliders";
 import { popularSerie } from "@/utils/queries";
 import { widthMage } from "@/utils/api";
+
 
 export const TopSeries = () => {
 
@@ -24,8 +25,8 @@ export const TopSeries = () => {
                     <div className="w-full m-auto">
                         <Slider {...settings}>
                             {serie?.data?.results.map((item:any) => (
-                                <>
-                                    <div key={item.id} className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
+                                <div key={item.id}>
+                                    <div className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
 
                                         <div  className="" >
                                             <img className="rounded-md w-full absolute h-full  md:hover:scale-125 transition-transform" src={`${widthMage}${item.poster_path}`} alt={item.title} />
@@ -41,8 +42,7 @@ export const TopSeries = () => {
 
                                         </div>
                                     </div>
-
-                                </>
+                                </div>
                             ))}
                         </Slider>
                     </div>

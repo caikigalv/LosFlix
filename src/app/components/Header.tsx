@@ -18,13 +18,11 @@ export const menus: Menu[] = [
 
 export const Header = () => {
 
-    const [openMenu, setOpenMenu] = useState(false)
+    const [openMenu, setOpenMenu] = useState(false);
     const themeCtx = useTheme();
 
     const handleClickDarkMod = () => {
-        if (themeCtx) {
-            themeCtx.setTheme(themeCtx.theme === 'dark' ? 'light' : 'dark')
-        }
+        themeCtx.ChangeTema()
     }
 
     return (
@@ -51,10 +49,10 @@ export const Header = () => {
                     <div className=" md:flex justify-center items-center h-full  md:m-0 my-2 ">
                         <ul className="md:flex gap-[50px]">
                             {menus.map(item => (
-                                <div className={``}>
+
+                                <div key={item.id} className={``}>
                                     <Link href={item.id === 2 ? '/searchserie' : '/search'} onClick={()=>setOpenMenu(false)}>
-                                        <li key={item.id}
-                                            className={` hover:text-white dark:hover:text-black md:m-0 my-2 xl:text-[20px] font-bold uppercase cursor-pointer hover:border-b-white dark:hover:border-b-black hover:border-b-2 w-[180px] md:w-full `}>{item.name}</li></Link>
+                                        <li className={` hover:text-white dark:hover:text-black md:m-0 my-2 xl:text-[20px] font-bold uppercase cursor-pointer hover:border-b-white dark:hover:border-b-black hover:border-b-2 w-[180px] md:w-full `}>{item.name}</li></Link>
                                 </div>
                             ))} 
                         </ul>

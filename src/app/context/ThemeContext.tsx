@@ -5,20 +5,28 @@ const STORAGE_KEY = 'themeContext';
 
 type ThemeContext = {
     theme: string;
-    setTheme: (newTheme: string) => void;
+    ChangeTema: () => void;
 }
 type Props = {
     children: ReactNode;
 }
 
-export const ThemeContext = createContext<ThemeContext | null>(null);
+export const ThemeContext = createContext<ThemeContext>({} as ThemeContext);
 
 
 export const ThemeProvider = ({ children }: Props) => {
 
+    
     const [theme, setTheme] = useState(
-        localStorage.getItem(STORAGE_KEY) || 'light'
+        'light'
     );
+    useEffect(()=>{
+        const tema = localStorage.getItem(STORAGE_KEY)
+        console.log(tema)
+        if(tema){
+            setTheme(tema);
+        }
+    }, [])
 
     useEffect(()=>{
         if(theme === 'dark'){
@@ -26,11 +34,21 @@ export const ThemeProvider = ({ children }: Props) => {
         }else{
             document.documentElement.classList.remove('dark'); 
         }
-        localStorage.setItem(STORAGE_KEY, theme)
+        
     }, [theme])
 
+    const ChangeTema =()=>{
+        if(theme === 'light'){
+            setTheme('dark');
+            localStorage.setItem(STORAGE_KEY, 'dark')
+            
+        }else{
+            setTheme('light');
+            localStorage.setItem(STORAGE_KEY, 'light')
+        }
+    }
     return (
-        <ThemeContext.Provider value={{theme, setTheme}}>
+        <ThemeContext.Provider value={{theme, ChangeTema}}>
             {children}
         </ThemeContext.Provider>
     )

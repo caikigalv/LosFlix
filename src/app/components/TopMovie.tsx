@@ -27,9 +27,10 @@ export const TopMovies = () => {
 
                 <Slider {...settings}>
                     {listmove?.data?.results.map((d:any) => (
-                        <>
-                            <div className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
-                                <div key={d.id} className="">
+                        <div key={d.id}>
+                            
+                            <div  className={"h-[450px] relative border-slate-200 dark:border-black cursor-pointer border-2"}>
+                                <div className="">
                                     <img className="rounded-md w-full absolute h-full  md:hover:scale-125 transition-transform 
                             " src={`${widthMage}${d.poster_path}`} alt={''} />
                                 </div>
@@ -44,7 +45,8 @@ export const TopMovies = () => {
 
                                 </div>
                             </div>
-                        </>
+                            
+                        </div>
                     ))}
                 </Slider>
             </div>
