@@ -17,15 +17,11 @@ export const ThemeContext = createContext<ThemeContext>({} as ThemeContext);
 export const ThemeProvider = ({ children }: Props) => {
 
     
-    const [theme, setTheme] = useState(
-        'light'
-    );
+    const [theme, setTheme] = useState('light');
+
     useEffect(()=>{
         const tema = localStorage.getItem(STORAGE_KEY)
-        console.log(tema)
-        if(tema){
-            setTheme(tema);
-        }
+        if(tema){setTheme(tema);}
     }, [])
 
     useEffect(()=>{

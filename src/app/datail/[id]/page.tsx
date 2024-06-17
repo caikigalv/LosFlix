@@ -48,7 +48,7 @@ function DetalhesMovie() {
 
     
     return (
-        <div className="flex flex-col justify-center self-center items-center w-screen lg:h-screen overflow-x-hidden overflow-y-hidden ">
+        <div className="flex flex-col justify-center self-center items-center w-screen  lg:h-screen overflow-x-hidden overflow-y-hidden ">
             <Link href={'/'}><FaWindowClose className="text-[30px] mt-16 cursor-pointer  lg:hidden " /></Link>
             <div className=" bg-purple-600 mt-4 dark:bg-red-600 lg:h-[600px] lg:w-[1000px] xl:h-[600px] xl:w-[1300px] h-[1200px]
             md:w-[660px] w-[300px] rounded-md border justify-center ">
