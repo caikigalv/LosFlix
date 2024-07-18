@@ -1,12 +1,12 @@
 import axios from "axios";
 import { keyapi } from "./keyapi";
 
+export const widthMage ='https://image.tmdb.org/t/p/w500/';
 
 export const api = axios.create({
     baseURL: 'https://api.themoviedb.org'
 });
 
-export const widthMage ='https://image.tmdb.org/t/p/w500/';
 export const getMovie = async() => {
     const res = await api.get('/3/movie/popular', {
         params: {

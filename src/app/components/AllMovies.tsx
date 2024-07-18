@@ -85,7 +85,7 @@ export const AllMovies = () => {
                                 autoComplete="off"
                                 id="input"
                                 type="text"
-                                className="md:w-[500px] md:h-[50px] w-[270px] outline-none rounded-md pl-4 border-2  border-black bg-transparent md:text-2xl text-[20px]  text-black dark:border-white dark:text-white ml-2" placeholder="Buscar filmes, series ...."
+                                className="md:w-[500px] md:h-[50px] w-[270px] outline-none rounded-md pl-4 border-2 border-black bg-transparent md:text-2xl text-[20px] text-black dark:border-white dark:text-white ml-2" placeholder="Buscar filmes, series ...."
                                 value={searchText}
                                 onChange={e => setSearchText(e.target.value)}
                             />
