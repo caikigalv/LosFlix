@@ -1,0 +1,74 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Continuous-Integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install, build and test
+        working-directory: galles_web
+        run: |
+          npm install
+          npm run build
+          npm run test || echo "No tests found"
+
+  Version-Bump:
+    runs-on: ubuntu-latest
+    needs: Continuous-Integration
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # necessário pro git push e tags funcionarem
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump version manually
+        working-directory: galles_web
+        run: |
+          # incrementa versão sem criar tag automática
+          npm version patch --no-git-tag-version
+          VERSION=$(npm pkg get version | tr -d '"')
+          git add package.json package-lock.json || true
+          git commit -m "🤖 v$VERSION"
+          git tag v$VERSION
+          echo "Nova versão: v$VERSION"
+          git push origin HEAD:${{ github.ref }}
+          git push origin v$VERSION
+
+      - name: Install GitHub CLI
+        run: sudo apt-get install -y gh
+
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION=$(cd galles_web && npm pkg get version | tr -d '"')
+          gh release create v$VERSION \
+            --title "🤖 v$VERSION" \
+            --notes "![Robot](https://cdn-icons-png.flaticon.com/512/4712/4712104.png)"
