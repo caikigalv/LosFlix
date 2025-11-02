@@ -11,7 +11,7 @@ type AddMovie = {
 
 export const useFavorites = () => {
   const [favorites, setFavorites] = useState<AddMovie[]>([]);
-
+ 
   useEffect(() => {
     const storedFavorites = localStorage.getItem('favorites');
     if (storedFavorites) {
@@ -26,7 +26,7 @@ export const useFavorites = () => {
   };
 
   const removeFavorite = (id:number) => {
-    const newFavorites = favorites.filter((movie) =>  movie.id !== id);
+    const newFavorites = favorites.filter((movie) => ![id].includes(Number(movie.id)));
     setFavorites(newFavorites)
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
   };

@@ -23,6 +23,7 @@ export const AllMovies = () => {
     const { favorites, addFavorite, removeFavorite } = useFavorites();
 
 
+    console.log('Filmes que estão sendo adicionados: ', favorites.map(a => a.id));
     const [pageNumber, setPageNumber] = useState(1)
     const [generPage, setGenerPage] = useState(0)
     const [evaluated, setEvaluated] = useState('vote_average')
@@ -44,7 +45,6 @@ export const AllMovies = () => {
 
     const handleAddGener = (event: ChangeEvent<HTMLSelectElement>) => {
         setGenerPage(Number(event.target.value))
-
     }
     const handleAddEvaluated = (event: ChangeEvent<HTMLSelectElement>) => {
         setEvaluated(event.target.value)

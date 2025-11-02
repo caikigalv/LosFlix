@@ -170,7 +170,7 @@ export const AllSeries = () => {
                                                 <p className="font-bold">{item.vote_average?.toFixed(1)}</p>
                                             </div>
                                             <div>
-                                                {favorites.some(fav => fav.id === item.id) ?
+                                                {favorites.filter(fav => fav.id === item.id) ?
                                                     <button onClick={() => removeFavorite(item.id)}><FaHeart className="text-2xl font-bold cursor-pointer" /></button>
                                                     :
                                                     <button onClick={() => addFavorite(item.id, item.title, item.poster_path)}><FaRegHeart className="text-2xl font-bold cursor-pointer" /></button>
