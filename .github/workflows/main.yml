@@ -68,7 +68,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERSION=$(cd LosFlix && npm pkg get version | tr -d '"')
+          VERSION=$(cd ./LosFlix && npm pkg get version | tr -d '"')
           gh release create v$VERSION \
             --title "🤖 v$VERSION" \
             --notes "![Robot](https://cdn-icons-png.flaticon.com/512/4712/4712104.png)"
